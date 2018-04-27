@@ -9,10 +9,19 @@ import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.context.junit4.SpringRunner;
 
 import com.webtrixs.healthcheck.model.HealthCheck;
 
+@RunWith(SpringRunner.class)
+@SpringBootTest
 public class HealthCheckControllerTest {
+	
+	@Autowired
+	HealthCheckController hcc ;
 
 	@BeforeClass
 	public static void setUpBeforeClass() throws Exception {
@@ -32,7 +41,7 @@ public class HealthCheckControllerTest {
 
 	@Test
 	public void testGetHealthCheck() {
-		HealthCheckController hcc = new HealthCheckController();
+		
 		List<HealthCheck> hcList = 	hcc.getHealthCheck();
 		assertEquals(2, hcList.size());
 		System.out.println(hcList.size());
