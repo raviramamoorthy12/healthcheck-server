@@ -1,6 +1,10 @@
 package com.webtrixs.healthcheck.controller;
 
-import static org.junit.Assert.*;
+
+
+
+import static org.hamcrest.CoreMatchers.is;
+import static org.hamcrest.MatcherAssert.assertThat;
 
 import java.util.List;
 
@@ -43,7 +47,8 @@ public class HealthCheckControllerTest {
 	public void testGetHealthCheck() {
 		
 		List<HealthCheck> hcList = 	hcc.getHealthCheck();
-		assertEquals(2, hcList.size());
+		assertThat(hcList.size(), is(2));
+		//assertEquals(2, hcList.size());
 		System.out.println(hcList.size());
 		
 	}
